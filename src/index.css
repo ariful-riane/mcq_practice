@@ -1,0 +1,208 @@
+/* -----------------------------------
+   CLEAN EXAM UI — FULLY RESPONSIVE
+------------------------------------ */
+
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#2563eb;
+  --success:#059669;
+  --danger:#dc2626;
+  --shadow: 0 6px 18px rgba(17,24,39,0.08);
+  --radius:12px;
+}
+
+*{box-sizing:border-box}
+html,body,#root{
+  height:100%;
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;
+  background:var(--bg);
+  color:#0f172a;
+}
+
+/* Overall wrapper */
+.app-shell{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+/* --------- LAYOUT ---------- */
+.container{
+  width:100%;
+  max-width:1100px;
+  display:grid;
+  grid-template-columns: 1fr 330px;
+  gap:24px;
+  align-items:start;
+}
+
+/* Card style */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* Header */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.title{font-size:20px;font-weight:700}
+.sub{font-size:14px;color:var(--muted)}
+
+/* Progress bar */
+.progress-wrap{
+  width:100%;
+  height:10px;
+  background:#e5e7eb;
+  border-radius:999px;
+  overflow:hidden;
+}
+.progress{
+  height:100%;
+  background:linear-gradient(90deg,var(--accent),#4f46e5);
+  width:0%;
+}
+
+/* Question */
+.q-number{font-size:14px;color:var(--muted)}
+.q-text{font-size:22px;line-height:1.4;font-weight:600;margin-top:6px}
+
+/* Options */
+.options{display:grid;gap:14px;margin-top:10px}
+.opt-btn{
+  text-align:left;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #e2e8f0;
+  background:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.18s;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.opt-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 14px rgba(0,0,0,0.05);
+}
+.opt-letter{
+  min-width:34px;height:34px;
+  border-radius:8px;
+  background:#eef2ff;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+.opt-text{flex:1}
+
+/* Feedback */
+.feedback{
+  padding:14px;
+  border-radius:10px;
+  font-weight:600;
+}
+.feedback.correct{
+  background:#ecfdf5;border:1px solid #bbf7d0;color:var(--success)
+}
+.feedback.wrong{
+  background:#fff1f2;border:1px solid #fecaca;color:var(--danger)
+}
+
+/* Controls */
+.controls{
+  display:flex;
+  gap:12px;
+  justify-content:space-between;
+  margin-top:10px;
+}
+.btn{
+  padding:10px 16px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+  border:none;
+}
+.btn-primary{background:var(--accent);color:white}
+.btn-ghost{
+  background:white;
+  border:1px solid #e2e8f0;
+  color:var(--muted);
+}
+.btn-disabled{opacity:0.6;cursor:not-allowed}
+
+/* Sidebar */
+.panel{
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+}
+.small{font-size:14px;color:var(--muted)}
+.stat{
+  display:flex;
+  justify-content:space-between;
+  margin-top:8px;
+}
+
+/* File uploader */
+.upload{
+  border:1px dashed #cbd5e1;
+  padding:14px;
+  border-radius:10px;
+  background:rgba(37,99,235,0.03);
+  text-align:center;
+}
+.file-input{display:block;margin:10px auto}
+
+/* -----------------------------------
+   RESPONSIVE FIXES (Mobile/tablet)
+------------------------------------ */
+
+@media (max-width: 960px){
+  .container{
+    grid-template-columns:1fr;
+    max-width:600px;
+  }
+  .panel{
+    order:-1;
+  }
+}
+
+/* PHONE FIX (super important) */
+@media (max-width: 600px){
+  .app-shell{
+    padding:10px;
+  }
+
+  .card{
+    padding:18px;
+  }
+
+  .title{font-size:18px}
+  .q-text{font-size:18px}
+
+  .container{
+    gap:16px;
+  }
+
+  .opt-btn{
+    padding:12px;
+    font-size:15px;
+  }
+}
