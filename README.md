@@ -2,6 +2,8 @@
 
 A React + Vite web application for creating and practicing multiple-choice questions (MCQs). Import question banks from JSON, CSV, or Excel files — or build them manually — then generate randomized quizzes for effective exam preparation and self-assessment.
 
+🔗 **Live Demo:** [mcq-practice-sigma.vercel.app](https://mcq-practice-sigma.vercel.app/)
+
 ## ✨ Features
 
 * 📄 Import MCQs from JSON, CSV, or Excel (.xlsx) files
