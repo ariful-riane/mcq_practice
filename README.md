@@ -1,37 +1,40 @@
 # MCQ Practice
 
-A Node.js-based web application for creating and practicing multiple-choice questions (MCQs). Users can upload question banks in JSON format or manually create questions, then generate randomized quizzes for effective exam preparation and self-assessment.
+A React + Vite web application for creating and practicing multiple-choice questions (MCQs). Import question banks from JSON, CSV, or Excel files — or build them manually — then generate randomized quizzes for effective exam preparation and self-assessment.
 
 ## ✨ Features
 
-* 📄 Import MCQs from JSON files
+* 📄 Import MCQs from JSON, CSV, or Excel (.xlsx) files
 * ✍️ Create and edit questions manually
 * 🎲 Generate randomized quizzes
 * 🎯 Practice with custom question banks
 * 📊 Instant scoring and feedback
-* 💾 Manage questions locally
+* 💾 Manage questions locally in the browser
 * 📱 Responsive user interface
 
 ## 🛠️ Technologies
 
-* Node.js
-* HTML5
-* CSS3
-* JavaScript
+* React 18
+* Vite
+* PapaParse (CSV parsing)
+* SheetJS / xlsx (Excel parsing)
+* uuid
+* JavaScript (JSX), HTML5, CSS3
 
 ## 📂 Project Structure
 
 ```text
 mcq_practice/
-├── public/
-├── routes/
-├── views/
+├── src/
+│   ├── main.jsx
+│   └── ...
+├── index.html
 ├── package.json
-├── server.js
+├── package-lock.json
+├── vite.config.mjs
 └── README.md
 ```
-
-> *The exact structure may vary depending on your implementation.*
+> *The exact structure of `src/` may vary as the project evolves.*
 
 ## 🚀 Getting Started
 
@@ -55,23 +58,29 @@ Install dependencies:
 npm install
 ```
 
-Start the application:
-
-```bash
-npm start
-```
-
-or, if your project uses a development script:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-The application will then be available in your browser at the local address shown in the terminal (commonly `http://localhost:3000`).
+The application will then be available in your browser at the local address shown in the terminal (commonly `http://localhost:5173`).
 
-## 📋 JSON Question Format
+### Building for Production
 
-Example:
+```bash
+npm run build
+```
+
+This outputs a static, production-ready build to the `dist/` folder. You can preview it locally with:
+
+```bash
+npm run preview
+```
+
+## 📋 Question Bank Formats
+
+### JSON
 
 ```json
 [
@@ -89,10 +98,13 @@ Example:
 ```
 
 Where:
-
 * `question` – The question text.
 * `options` – An array of answer choices.
 * `answer` – The zero-based index of the correct answer.
+
+### CSV / Excel
+
+Question banks can also be imported from `.csv` or `.xlsx` files (parsed with PapaParse and SheetJS respectively). Structure your spreadsheet with a header row for the question and each option, plus a column indicating the correct answer, following the same pattern as the JSON format above.
 
 ## 🎯 Purpose
 
@@ -100,16 +112,15 @@ This project was developed to provide a flexible platform for practicing multipl
 
 ## 🌐 Deployment
 
-This project is a **Node.js application** and requires a Node.js runtime. It cannot be hosted using GitHub Pages, which only supports static websites.
+Since this is a static, client-side React app built with Vite, the production build (`dist/`) can be deployed to any static hosting provider, including:
 
-To deploy online, use a platform that supports Node.js applications, such as:
+* GitHub Pages
+* Vercel
+* Netlify
+* Render (static site)
+* Cloudflare Pages
 
-* Render
-* Railway
-* Fly.io
-* Azure App Service
-* AWS Elastic Beanstalk
-* DigitalOcean App Platform
+Run `npm run build` and deploy the contents of the generated `dist/` folder.
 
 ## 🤝 Contributing
 
